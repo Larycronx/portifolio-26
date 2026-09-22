@@ -10,7 +10,6 @@
   <a href="https://github.com/Larycronx">Meu GitHub</a>
   ·
   <a href="https://www.linkedin.com/in/larissafrancisco07/">LinkedIn</a>
-</p> <img src="assets/guaxi.png" alt="Guaxi, cachorro usando boné e fones de ouvido" width="180">
 
 > Um pequeno caos bem acompanhado — entre código, narrativa e imaginação.
 
