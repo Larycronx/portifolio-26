@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Som das Seis | Personagens</title>
+    <link rel="stylesheet" href="som-das-seis.css">
+</head>
+<body class="sound-page">
+    <!-- A mesma trilha ambiente usada nas outras páginas do RPG. -->
+    <audio id="rpg-music" src="../Music/rpg-theme.mp3" loop preload="auto"></audio>
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">Ouvir música</button>
+    <a class="sound-home-link" href="../rpg.html">← Voltar à aba RPG</a>
+
+    <main class="sound-scene" aria-labelledby="sound-title">
+        <header class="sound-heading">
+            <p class="eyebrow">Campanha · Velho Oeste</p>
+            <h1 id="sound-title">Som das Seis</h1>
+            <p>Conheça as figuras que carregam carinho, liberdade, esperança, loucura e Obstinação.</p>
+        </header>
+
+        <!-- Cada article reúne imagem, identificação e descrição do personagem. -->
+        <section class="sound-grid" aria-label="Personagens de Som das Seis">
+            <article class="sound-character">
+                <button class="sound-character-toggle" type="button" aria-expanded="false" aria-controls="description-dolly">
+                    <img src="assets-sds/Dolly.png" alt="Dolly Parton">
+                    <span class="sound-character-label"><strong>Dolly Parton</strong><span>Carinho</span></span>
+                </button>
+                <p class="sound-description" id="description-dolly">A mim pertence a vingança e a retribuição. No devido tempo os pés deles escorregarão; o dia da sua desgraça está chegando e o seu próprio destino se apressa sobre eles.</p>
+            </article>
+
+            <article class="sound-character">
+                <button class="sound-character-toggle" type="button" aria-expanded="false" aria-controls="description-sabrina">
+                    <img src="assets-sds/sabrina.png" alt="Sabrina Carpenter">
+                    <span class="sound-character-label"><strong>Sabrina Carpenter</strong><span>Liberdade</span></span>
+                </button>
+                <p class="sound-description" id="description-sabrina">Deixo com vocês a paz; a minha paz dou a vocês. Não a dou como o mundo a dá. Não se perturbe o coração de vocês nem tenham medo.</p>
+            </article>
+
+            <article class="sound-character">
+                <button class="sound-character-toggle" type="button" aria-expanded="false" aria-controls="description-ariana">
+                    <img src="assets-sds/ariana.png" alt="Ariana Grande">
+                    <span class="sound-character-label"><strong>Ariana Grande</strong><span>Esperança</span></span>
+                </button>
+                <p class="sound-description" id="description-ariana">Aqueles que têm um coração perverso guardam raiva e, mesmo quando são castigados, não clamam pedindo socorro.</p>
+            </article>
+
+            <article class="sound-character">
+                <button class="sound-character-toggle" type="button" aria-expanded="false" aria-controls="description-taylor">
+                    <img src="assets-sds/taylor.png" alt="Taylor Swift">
+                    <span class="sound-character-label"><strong>Taylor Swift</strong><span>Loucura</span></span>
+                </button>
+                <p class="sound-description" id="description-taylor">Portanto, não se preocupem com o amanhã, pois o amanhã trará as suas próprias preocupações. Basta a cada dia o seu próprio mal.</p>
+            </article>
+
+            <article class="sound-character">
+                <button class="sound-character-toggle" type="button" aria-expanded="false" aria-controls="description-lady">
+                    <img src="assets-sds/lady.png" alt="Lady Gaga">
+                    <span class="sound-character-label"><strong>Lady Gaga</strong><span>Obstinação</span></span>
+                </button>
+                <p class="sound-description" id="description-lady">Não te canses para enriqueceres; dá de mão à tua própria sabedoria.</p>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        // Abre uma descrição por clique e atualiza aria-expanded para teclado e leitores de tela.
+        document.querySelectorAll(".sound-character-toggle").forEach((button) => {
+            button.addEventListener("click", () => {
+                const isOpen = button.getAttribute("aria-expanded") === "true";
+                document.querySelectorAll(".sound-character-toggle").forEach((otherButton) => {
+                    otherButton.setAttribute("aria-expanded", "false");
+                });
+                button.setAttribute("aria-expanded", String(!isOpen));
+            });
+        });
+
+        // Controla a música com o mesmo estado compartilhado das páginas de RPG.
+        const rpgMusic = document.getElementById("rpg-music");
+        const musicToggle = document.getElementById("music-toggle");
+        const musicTimeKey = "rpgMusicTime";
+        rpgMusic.volume = 0.05;
+
+        function updateMusicButton(isPlaying) {
+            musicToggle.textContent = isPlaying ? "Pausar música" : "Ouvir música";
+            musicToggle.setAttribute("aria-pressed", String(isPlaying));
+        }
+
+        musicToggle.addEventListener("click", () => {
+            if (rpgMusic.paused) {
+                rpgMusic.play().then(() => updateMusicButton(true)).catch(() => updateMusicButton(false));
+            } else {
+                rpgMusic.pause();
+            }
+        });
+        rpgMusic.addEventListener("play", () => updateMusicButton(true));
+        rpgMusic.addEventListener("pause", () => updateMusicButton(false));
+        rpgMusic.addEventListener("timeupdate", () => sessionStorage.setItem(musicTimeKey, String(rpgMusic.currentTime)));
+        window.addEventListener("pagehide", () => sessionStorage.setItem(musicTimeKey, String(rpgMusic.currentTime)));
+        rpgMusic.addEventListener("loadedmetadata", () => {
+            const savedTime = Number(sessionStorage.getItem(musicTimeKey));
+            if (Number.isFinite(savedTime) && savedTime >= 0 && savedTime < rpgMusic.duration) rpgMusic.currentTime = savedTime;
+        });
+        rpgMusic.play().catch(() => updateMusicButton(false));
+    </script>
+</body>
+</html>

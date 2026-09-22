@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesas de RPG | Meu GitHub</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="rpg-page">
+    <audio id="rpg-music" src="Music/rpg-theme.mp3"  loop preload="auto"></audio>
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">Ouvir música</button>
+    <div class="rpg-scene" role="img" aria-label="Catedral em uma atmosfera de fantasia medieval"></div>
+    <div class="rpg-vignette" aria-hidden="true"></div>
+
+    <main class="rpg-content">
+        <nav class="rpg-nav" aria-label="Navegação principal">
+            <a href="index.html" class="back-link">← voltar ao portfólio</a>
+            <span class="rpg-mark"><a class="back-link" href="personagens.html">ver personagens →</a> &nbsp; LARYCRONX / RPG</span>
+        </nav>
+
+        <section class="rpg-intro" aria-labelledby="rpg-title">
+            <p class="eyebrow">diário de uma mestre</p>
+            <h1 id="rpg-title">Toda mesa é um lugar para aprender.</h1>
+            <p class="rpg-lead">Sou mestre de RPG e encontro nas minhas mesas um espaço para transformar estudo em narrativa, regra em experiência e imaginação em encontro.</p>
+            <a class="about-button" href="#foundry">Conheça meu jeito de mestrar <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="rpg-story" id="foundry" aria-labelledby="foundry-title">
+            <div>
+                <p class="section-label">01 / entre mundos</p>
+                <h2 id="foundry-title">Do estudo para a mesa.</h2>
+            </div>
+            <div class="rpg-text">
+                <p>Eu utilizo o que aprendo nas minhas mesas para construir experiências mais cuidadosas, envolventes e vivas. Cada sessão é uma chance de testar ideias, observar pessoas criando juntas e descobrir novas formas de contar histórias.</p>
+                <p>Também trabalho com Foundry VTT, explorando suas ferramentas para preparar cenários, organizar campanhas e aproximar jogadores mesmo quando a aventura acontece à distância.</p>
+                <p>Meu hobby não fica separado do meu aprendizado: ele é onde estudo, experimento e compartilho tudo isso com outras pessoas.</p>
+                <a class="github-link" href="https://github.com/Larycronx/alchemy-system" target="_blank" rel="noreferrer">Ver meus projetos no GitHub ↗</a>
+                
+            </div>
+        </section>
+
+        <section class="campaigns" id="campanhas" aria-labelledby="campaigns-title">
+            <div class="campaigns-heading">
+                <div>
+                    <p class="section-label">02 / minhas mesas</p>
+                    <h2 id="campaigns-title">Mundos que estou construindo.</h2>
+                    <br></br>
+
+            <div class="campaign-grid">
+                <article class="campaign-card">
+                    <img class="campaign-image" src="assets/Sylkium.jpg" alt="Arte do RPG Sylkium">
+                    <h3><a class="campaign-title-link" href="personagens.html">Sylkium</a></h3>
+                    <p class="campaign-description">Os aventureiros atravessam terras desoladas onde os deuses definham e desaparecem, e o mal se infiltra em cada canto. Um mundo de autoria própria, onde a esperança é tão rara quanto o sagrado.
+
+</p>
+                </article>
+                <article class="campaign-card">
+                    <img class="campaign-image" src="assets/Som-das-seis.jpg" alt="Arte do RPG Som das Seis">
+                    <h3><a class="campaign-title-link" href="som-das-seis/som-das-seis.html">Som das Seis</a></h3>
+                    <p class="campaign-description">No Velho Oeste, onde os personagens precisarão enfrentar um antigo inimigo e, para isso, firmar alianças improváveis — únicas capazes de deter uma corrupção que ameaça consumir tudo.</p>
+                </article>
+                <article class="campaign-card">
+                    <img class="campaign-image" src="assets/cuthulhu.jpg" alt="Arte do RPG Cuthullo">
+                    <h3>Call of Cthulhu</h3>
+                    <p class="campaign-description">Na antiga Londres, pessoas marcadas por traumas, vivências dolorosas e um quê de loucura se veem obrigadas a desvendar os terrores de uma casa possivelmente assombrada — onde cada sombra pode ser real demais</p>
+                </article>
+                <article class="campaign-card">
+                    <img class="campaign-image" src="assets/curse.jpg" alt="Arte do RPG CURSE">
+                    <h3>Curse of Strahd</h3>
+                    <p class="campaign-description">Os aventureiros atravessam terras desoladas onde os deuses definham e desaparecem, e o mal se infiltra em cada canto. Um mundo de autoria própria, onde a esperança é tão rara quanto o sagrado.</p>
+                </article>
+                <article class="campaign-card">
+                    <img class="campaign-image" src="assets/Descideavernus.jpg" alt="Arte do RPG Descida ao Avernus">
+                    <h3>Descida ao Avernus</h3>
+                    <p class="campaign-description">Com a queda de Avernus, os aventureiros terão de enfrentar máquinas e criaturas infernais nos domínios de Zariel — um antigo anjo que aceitou se tornar a própria justiça no Inferno.</p>
+                </article>
+                <article class="campaign-card">
+                    <img class="campaign-image" src="assets/Mascara.jpg" alt="Arte do RPG Teste Máscara">
+                    <h3>Vampiro a Máscara</h3>
+                    <p class="campaign-description">Esconder o monstro interior enquanto se luta contra a própria fome. Quando a corrupção se espalha entre aqueles a quem um dia juraram confiar, a máscara não pode — em circunstância alguma — ser quebrada.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Mantém a mesma música ambiente da página de RPG, em loop contínuo.
+        const rpgMusic = document.getElementById("rpg-music");
+        const musicToggle = document.getElementById("music-toggle");
+        const musicTimeKey = "rpgMusicTime";
+        // Volume inicial da trilha: 35% do volume máximo.
+        rpgMusic.volume = 0.05;
+        rpgMusic.loop = true;
+
+        function updateMusicButton(isPlaying) {
+            musicToggle.textContent = isPlaying ? "Pausar música" : "Ouvir música";
+            musicToggle.setAttribute("aria-pressed", String(isPlaying));
+        }
+
+        musicToggle.addEventListener("click", () => {
+            if (rpgMusic.paused) {
+                rpgMusic.play().then(() => updateMusicButton(true)).catch(() => {});
+            } else {
+                rpgMusic.pause();
+                updateMusicButton(false);
+            }
+        });
+
+        rpgMusic.addEventListener("play", () => updateMusicButton(true));
+        rpgMusic.addEventListener("pause", () => updateMusicButton(false));
+        rpgMusic.addEventListener("timeupdate", () => {
+            sessionStorage.setItem(musicTimeKey, String(rpgMusic.currentTime));
+        });
+        window.addEventListener("pagehide", () => {
+            sessionStorage.setItem(musicTimeKey, String(rpgMusic.currentTime));
+        });
+        rpgMusic.addEventListener("loadedmetadata", () => {
+            const savedTime = Number(sessionStorage.getItem(musicTimeKey));
+            if (Number.isFinite(savedTime) && savedTime >= 0 && savedTime < rpgMusic.duration) {
+                rpgMusic.currentTime = savedTime;
+            }
+        });
+
+        // Se o navegador bloquear o autoplay, o botão continua disponível para iniciar.
+        rpgMusic.play().catch(() => updateMusicButton(false));
+    </script>
+</body>
+</html>

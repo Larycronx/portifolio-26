@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Larissa Francisco: interfaces, experimentos criativos e projetos em JavaScript, Mermaid e Foundry VTT.">
+    <title>Larissa Francisco — Portfólio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+    <div class="home-stars" aria-hidden="true">
+        <span style="--x: 8%; --y: 16%; --size: 2px; --delay: -1s;"></span>
+        <span style="--x: 18%; --y: 72%; --size: 4px; --delay: -3.2s;"></span>
+        <span style="--x: 31%; --y: 24%; --size: 3px; --delay: -2.1s;"></span>
+        <span style="--x: 64%; --y: 12%; --size: 5px; --delay: -2.7s;"></span>
+        <span style="--x: 78%; --y: 70%; --size: 2px; --delay: -0.5s;"></span>
+        <span style="--x: 91%; --y: 30%; --size: 3px; --delay: -3.8s;"></span>
+        <span style="--x: 5%; --y: 48%; --size: 3px; --delay: -4.1s;"></span>
+    </div>
+
+    <div class="home-shell">
+        <header class="home-nav">
+            <a class="home-brand" href="index.html" aria-label="Voltar ao início">
+                <span class="home-brand-mark">LF</span>
+                <span>Larycronx</span>
+            </a>
+            <nav class="home-menu" aria-label="Navegação principal">
+                <a href="#sobre">sobre</a>
+                <a href="#projetos">projetos</a>
+                <a href="https://www.linkedin.com/in/larissafrancisco07/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="home-hero" id="inicio" aria-labelledby="home-title">
+                <div class="home-hero-copy">
+                    <p class="home-kicker"><span></span> portfólio / 2026</p>
+                    <h1 id="home-title">Interfaces para ideias que merecem ganhar forma.</h1>
+                    <p class="home-lead">Eu sou <strong>Larissa Francisco</strong>, uma desenvolvedora criativa que transforma perguntas em interfaces, sistemas e experiências com personalidade.</p>
+                    <div class="home-actions">
+                        <a class="home-button home-button-primary" href="#projetos">Ver projetos <span aria-hidden="true">↓</span></a>
+                        <a class="home-button home-button-secondary" href="https://github.com/Larycronx" target="_blank" rel="noreferrer">Abrir GitHub <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="home-tags" aria-label="Tecnologias e áreas de interesse">
+                        <span>JavaScript</span>
+                        <span>Mermaid</span>
+                        <span>Foundry VTT</span>
+                    </div>
+                </div>
+
+                <div class="home-portrait-wrap">
+                    <div class="home-portrait-orbit home-portrait-orbit-one" aria-hidden="true"></div>
+                    <div class="home-portrait-orbit home-portrait-orbit-two" aria-hidden="true"></div>
+                    <div class="home-portrait-card">
+                        <div class="home-portrait-topline">
+                            <span>reliquário 01</span>
+                            <span>guaxi.exe</span>
+                        </div>
+                        <div class="home-portrait-image">
+                            <img src="assets/guaxi.png" alt="Guaxi, cachorro usando boné e fones de ouvido" fetchpriority="high">
+                        </div>
+                        <div class="home-portrait-caption">
+                            <span>mascote do portfólio</span>
+                            <strong>Um pequeno caos bem acompanhado.</strong>
+                        </div>
+                    </div>
+                    <span class="home-portrait-stamp" aria-hidden="true">✠</span>
+                </div>
+            </section>
+
+            <section class="home-about" id="sobre" aria-labelledby="about-title">
+                <div class="home-section-index">01 / sobre mim</div>
+                <div class="home-about-content">
+                    <div>
+                        <h2 id="about-title">Gosto de construir pontes entre lógica e imaginação.</h2>
+                    </div>
+                    <div class="home-about-text">
+                        <p>Meu trabalho nasce do encontro entre estrutura e narrativa: um banco de dados precisa contar uma história com clareza, e uma interface pode fazer uma ideia complexa parecer simples.</p>
+                        <p>Hoje, exploro desenvolvimento web, modelagem de dados e ferramentas para mundos digitais. Este portfólio reúne o que estou criando, estudando e testando no caminho.</p>
+                        <a class="home-text-link" href="https://github.com/Larycronx" target="_blank" rel="noreferrer">Conheça meu código no GitHub <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-projects" id="projetos" aria-labelledby="projects-title">
+                <div class="home-section-heading">
+                    <div>
+                        <div class="home-section-index">02 / projetos selecionados</div>
+                        <h2 id="projects-title">Coisas que estou colocando no mundo.</h2>
+                    </div>
+                    <a class="home-section-link" href="https://github.com/Larycronx?tab=repositories" target="_blank" rel="noreferrer">Ver todos no GitHub <span aria-hidden="true">↗</span></a>
+                </div>
+
+                <div class="home-project-grid">
+                    <a class="home-project-card home-project-card-featured" href="https://github.com/Larycronx/alchemy-system" target="_blank" rel="noreferrer">
+                        <div class="home-project-art home-project-art-alchemy">
+                            <span class="home-project-symbol" aria-hidden="true">✧</span>
+                            <span class="home-project-art-label">laboratório</span>
+                        </div>
+                        <div class="home-project-body">
+                            <p class="home-project-type">módulo para Foundry VTT</p>
+                            <h3>Sistema de Alquimia</h3>
+                            <p>Um laboratório vivo para D&amp;D 5e: descoberta de receitas, experimentação com ingredientes e fabricação de poções.</p>
+                            <div class="home-project-footer"><span>GitHub · JavaScript · v13</span><span aria-hidden="true">↗</span></div>
+                        </div>
+                    </a>
+
+                    <a class="home-project-card" href="https://github.com/Larycronx/Der_Banco_De_Dados" target="_blank" rel="noreferrer">
+                        <div class="home-project-art home-project-art-database">
+                            <span class="home-database-lines" aria-hidden="true"></span>
+                            <span class="home-project-art-label">sistema comercial</span>
+                        </div>
+                        <div class="home-project-body">
+                            <p class="home-project-type">modelagem de dados</p>
+                            <h3>DER — Gestão Comercial</h3>
+                            <p>Um modelo relacional para integrar compras, vendas, estoque, clientes, eventos e contas a pagar.</p>
+                            <div class="home-project-footer"><span>GitHub · Mermaid · Git</span><span aria-hidden="true">↗</span></div>
+                        </div>
+                    </a>
+
+                    <a class="home-project-card home-project-card-visual" href="som-das-seis/som-das-seis.html">
+                        <div class="home-project-image-wrap">
+                            <img src="assets/Som-das-seis.jpg" alt="Paisagem de fazenda sob um céu vermelho" loading="lazy">
+                            <span class="home-project-image-badge">experimento</span>
+                        </div>
+                        <div class="home-project-body">
+                            <p class="home-project-type">narrativa visual</p>
+                            <h3>Som das Seis</h3>
+                            <p>Uma experiência audiovisual que mistura atmosfera, personagens e uma estética de faroeste fantástico.</p>
+                            <div class="home-project-footer"><span>HTML · CSS · áudio</span><span aria-hidden="true">↗</span></div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="home-contact" aria-labelledby="contact-title">
+                <div class="home-section-index">03 / vamos conversar</div>
+                <div class="home-contact-content">
+                    <h2 id="contact-title">Uma boa ideia sempre pode começar com um “oi”.</h2>
+                    <div class="home-contact-links">
+                        <a href="https://www.linkedin.com/in/larissafrancisco07/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+                        <a href="https://github.com/Larycronx" target="_blank" rel="noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="home-footer">
+            <a class="home-hobby-tab" href="rpg.html">
+                <span class="home-hobby-label">hobbies</span>
+                <span class="home-hobby-title">Entrar no universo de RPG</span>
+                <span class="home-hobby-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="home-footer-meta">
+                <span>Larissa Francisco / Larycronx</span>
+                <span>feito com curiosidade e código</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

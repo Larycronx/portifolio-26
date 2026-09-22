@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personagens | Meu RPG</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="characters-page">
+    <!-- Música opcional: os navegadores podem bloquear o início automático. -->
+    <audio id="rpg-music" src="Music/rpg-theme.mp3" loop preload="auto"></audio>
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">
+        Ouvir música
+    </button>
+
+    <!-- Retorno para a página que reúne as campanhas. -->
+    <a class="characters-home-link" href="rpg.html">← Voltar à aba RPG</a>
+
+    <main class="character-scene" aria-labelledby="characters-title">
+        <!-- A névoa fica apenas como camada visual e não bloqueia os cliques. -->
+        <div class="mist" aria-hidden="true">
+            <span class="mist-layer mist-1"></span>
+            <span class="mist-layer mist-2"></span>
+            <span class="mist-layer mist-3"></span>
+            <span class="mist-layer mist-front"></span>
+        </div>
+
+        <!-- Cada coluna é independente; assim uma descrição não fica dentro da outra. -->
+        <article class="solo-character solo-character-left">
+            <a href="personagens/makiza.html" class="solo-character-link" aria-label="Abrir descrição completa de Makiza">
+                <img src="assets/Makiza.png" alt="Makiza, paladina de Pelor">
+            </a>
+            <div class="solo-character-label">
+                <strong>Makiza</strong>
+                <span>Paladina da luz</span>
+            </div>
+            <!-- Resumo aparece ao passar o mouse ou focar o personagem. -->
+            <p class="solo-character-description">Makiza é bondosa, calma e inteligente. Ela segue os ensinamentos de Pelor e procura aliviar o sofrimento de quem encontra.</p>
+        </article>
+
+        <article class="solo-character solo-character-right">
+            <a href="personagens/lizel.html" class="solo-character-link" aria-label="Abrir descrição completa de Lizel">
+                <img src="assets/Lizel.png" alt="Lizel, ladina tiefling">
+            </a>
+            <div class="solo-character-label">
+                <strong>Lizel</strong>
+                <span>Ladina assassina</span>
+            </div>
+            <!-- Este resumo segue o mesmo comportamento do painel de Makiza. -->
+            <p class="solo-character-description">Lizel é alegre, determinada e sorrateira. Embora tenha um coração enorme, não costuma olhar para trás quando rompe um vínculo.</p>
+        </article>
+
+        <!-- Título central decorativo; pointer-events none preserva os cliques. -->
+        <div class="tit-character-wrapper">
+            <h1 id="characters-title" class="tit-character">A seguidora da luz e a assassina das sombras</h1>
+        </div>
+    </main>
+
+    <script>
+        // Controla a trilha ambiente e mantém a posição ao trocar de página.
+        const rpgMusic = document.getElementById("rpg-music");
+        const musicToggle = document.getElementById("music-toggle");
+        const musicTimeKey = "rpgMusicTime";
+
+        rpgMusic.volume = 0.05;
+
+        // Atualiza o texto e o estado acessível do botão de música.
+        function updateMusicButton(isPlaying) {
+            musicToggle.textContent = isPlaying ? "Pausar música" : "Ouvir música";
+            musicToggle.setAttribute("aria-pressed", String(isPlaying));
+        }
+
+        // O play só acontece depois de uma ação do usuário quando o navegador bloquear autoplay.
+        musicToggle.addEventListener("click", () => {
+            if (rpgMusic.paused) {
+                rpgMusic.play().then(() => updateMusicButton(true)).catch(() => updateMusicButton(false));
+            } else {
+                rpgMusic.pause();
+            }
+        });
+
+        rpgMusic.addEventListener("play", () => updateMusicButton(true));
+        rpgMusic.addEventListener("pause", () => updateMusicButton(false));
+
+        // Salva o ponto atual para a música continuar de onde parou nas outras páginas.
+        rpgMusic.addEventListener("timeupdate", () => {
+            sessionStorage.setItem(musicTimeKey, String(rpgMusic.currentTime));
+        });
+        window.addEventListener("pagehide", () => {
+            sessionStorage.setItem(musicTimeKey, String(rpgMusic.currentTime));
+        });
+        rpgMusic.addEventListener("loadedmetadata", () => {
+            const savedTime = Number(sessionStorage.getItem(musicTimeKey));
+            if (Number.isFinite(savedTime) && savedTime >= 0 && savedTime < rpgMusic.duration) {
+                rpgMusic.currentTime = savedTime;
+            }
+        });
+
+        // Tenta iniciar a trilha, mas deixa o botão disponível se houver bloqueio.
+        rpgMusic.play().catch(() => updateMusicButton(false));
+    </script>
+</body>
+</html>
